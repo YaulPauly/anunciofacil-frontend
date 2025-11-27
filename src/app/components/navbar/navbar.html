@@ -1,1 +1,14 @@
-<p>navbar works!</p>
+<nav class="flex justify-between items-center px-80 h-[80px] bg-navbar text-color-text font-semibold">
+    <div>
+        <a  class="flex items-center gap-2">
+            <span class="text-2xl">Anuncia Facil</span>
+            <!-- Logo SVG -->
+        </a>
+    </div>
+    <div class="flex gap-10 items-center">
+        <a routerLink="/anuncio" class="px-4 py-2 bg-color-text text-white rounded-xl hover:bg-neutral-500 transition-colors">Crear anuncio</a>
+        <a routerLink="/inicio" class="">Inicio</a>
+        <a routerLink="/contacto" class="">Contacto</a>
+        <a routerLink="/acceder" class="">Acceder</a>
+    </div>
+</nav>
