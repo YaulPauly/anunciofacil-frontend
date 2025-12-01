@@ -10,5 +10,6 @@ export interface PublicacionModel {
     estado: string;
     usuario: UsuarioModel;
     categoria: CategoriaModel;
+    locacion?: string;
 
 }
