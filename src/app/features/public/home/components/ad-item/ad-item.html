@@ -1,6 +1,10 @@
 <div class="card">
   <div class="card-image">
-     <img [src]="item.imagenes ? item.imagenes : 'https://placehold.co/300x200'" [alt]="item.titulo">
+    @if (item.imagenes) {
+      <img [src]="item.imagenes" [alt]="item.titulo">
+    } @else {
+      <img src="https://placehold.co/300x200?text=Sin+Foto" alt="Sin imagen">
+    }
   </div>
 
   <div class="card-body">
@@ -11,7 +15,7 @@
     </div>
 
     <div class="info">
-      <span>🏷️ {{ item.categoria.nombreCategoria }}</span>
+      <span>🏷️ {{ item.categoria?.nombreCategoria || 'General' }}</span>
     </div>
 
     <button class="btn-ver">Ver Publicación</button>

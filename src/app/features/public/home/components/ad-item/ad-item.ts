@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { PublicacionModel } from '../../models/publicacion.model';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-ad-item',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './ad-item.html',
   styleUrl: './ad-item.css',
 })
