@@ -1,8 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-
-@theme {
-    --color-navbar: #93ACB5;
-    --color-color-text: #3a3a3a;
-    --color-items: #A9D3FF;
-}
+@import "./styles/tokens.css";
+@import "./styles/components.css";
+@import "./styles/overrides.css";
