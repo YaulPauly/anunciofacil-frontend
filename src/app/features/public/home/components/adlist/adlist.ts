@@ -1,25 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PublicacionModel } from '../../models/publicacion.model';
+import { AdItem } from '../ad-item/ad-item';
 
 @Component({
   selector: 'app-adlist',
-  imports: [CommonModule],
+  imports: [CommonModule, AdItem],
   templateUrl: './adlist.html',
   styleUrl: './adlist.css',
 })
 export class Adlist {
 
-  ad = signal ({
-    id: 0,
-    title: '',
-    content: '',
-    postdate: new Date(),
-    images: [],
-    comments: [],
-  })
-
-  //Fetch de la API GetAllAnuncios
-  adList = signal ([]);
+  // Input para recibir las publicaciones desde el componente padre
+  @Input() publicaciones: PublicacionModel[] = [];
 
 
 }

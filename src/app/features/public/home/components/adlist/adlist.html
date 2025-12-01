@@ -1,5 +1,9 @@
-<section class="w-full h-dvh">
-    <div class="container mx-auto">
-        
-    </div>
-</section>
+<div class="grid-container">
+  
+  @for(p of publicaciones; track p.idPublicacion){
+    <app-ad-item [item]="p"></app-ad-item>
+  } @empty {
+    <p>No hay publicaciones disponibles. :D</p>
+  }
+
+</div>
