@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { PublicacionModel } from '../../models/publicacion.model';
+import { RouterLink } from "@angular/router";
 
 
 @Component({
   selector: 'app-ad-item',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './ad-item.html',
-  styleUrl: './ad-item.css',
+  styleUrls: ['./ad-item.css'],
 })
 export class AdItem {
   // Input para recibir una publicación desde el componente padre
