@@ -1,21 +1,21 @@
-<section class="w-full h-[500px] flex items-center justify-center bg-amber-200 overflow-hidden">
+<section id="hero" class="w-full h-[700px] flex items-center justify-center overflow-hidden">
     <div class="container mx-auto h-full flex flex-col items-center justify-center gap-6 px-4 w-full">
         
-        <h1 class="font-semibold text-4xl text-center">Anuncio aqui</h1>
-
+        <h1 class="font-semibold text-6xl text-center text-white">Publica y descubre anuncios fácilmente</h1>
+        <span class="font-semibold text-white">Busca oportunidades, compra, vende o encuentra lo que necesitas al instante.</span>
         <input
             type="text"
             placeholder="Buscar empleos, bienes, autos y más.."
             class="bg-white px-4 py-3 rounded-lg w-full max-w-md shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
         >
 
-        <div id="buttons-bar" class="w-full flex justify-center">
+        <div id="buttons-bar" class="w-full flex justify-center items-center">
             
-            <div class="bg-navbar categories flex overflow-x-auto w-full max-w-4xl  px-2 lg:justify-center justify-start mask-gradient">
+            <div class="bg-navbar categories flex overflow-x-auto w-full max-w-4xl  px-2 justify-center mask-gradient">
                 
                 @for(cat of categoriasPrueba; track cat.idCategoria){
-                    <a class="category-pill py-4 px-6 flex  justify-center items-center hover:bg-white cursor-pointer transition-colors shrink-0 whitespace-nowrap text-sm font-medium" 
-                       routerLink="{{cat.nombreCategoria}}">
+                    <a class="category-pill py-4 px-6 flex justify-center items-center hover:bg-white cursor-pointer transition-colors shrink-0 whitespace-nowrap text-sm font-medium" 
+                       [routerLink]="['/anuncios/categoria', cat.nombreCategoria.toLowerCase()]">
                         {{cat.nombreCategoria}}
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m10 17l5-5l-5-5z"/></svg>
                     </a>
