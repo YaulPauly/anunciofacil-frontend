@@ -1,0 +1,22 @@
+<div class="min-h-screen bg-gray-50 py-8">
+  <div class="container mx-auto px-4">
+    
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-gray-800 capitalize">
+        {{ nombreCategoria }}
+      </h2>
+      <p class="text-color-text mt-2 text-xl">Encuentra ofertas laborales cercanas a tu perfil y experiencia. Postula a oportunidades reales que se ajustan a tus habilidades.</p>
+    </div>
+
+    @if (loading) {
+      <div class="text-center py-10">
+        <p class="text-xl text-gray-400 animate-pulse">Cargando anuncios...</p>
+      </div>
+    }
+
+    @if (!loading) {
+       <app-adlist [publicaciones]="listaPublicaciones"></app-adlist>
+    }
+
+  </div>
+</div>
