@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Navbar } from './components/navbar/navbar';
+import { NavbarPublicComponent } from './components/navbar-public/navbar-public.component';
+import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 
 @NgModule({
-  imports: [CommonModule, Navbar],
-  exports: [Navbar]
+  imports: [CommonModule, NavbarPublicComponent, NavbarAdminComponent],
+  exports: [NavbarPublicComponent, NavbarAdminComponent]
 })
 export class SharedModule {}

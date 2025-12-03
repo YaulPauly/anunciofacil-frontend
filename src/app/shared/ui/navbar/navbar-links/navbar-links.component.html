@@ -1,0 +1,19 @@
+<div [ngClass]="orientation === 'row' ? 'flex items-center gap-6' : 'flex flex-col gap-4 w-full'">
+  @for (link of links; track link.path) {
+    <a
+      [routerLink]="link.path"
+      routerLinkActive="link-active"
+      [routerLinkActiveOptions]="{ exact: link.exact ?? true }"
+      [ngClass]="[
+        link.variant === 'cta'
+          ? 'px-4 py-2 bg-color-text text-white rounded-xl hover:bg-neutral-500 transition-colors'
+          : '',
+        orientation === 'column' ? 'py-2' : '',
+        orientation === 'column' && link.variant === 'cta' ? 'text-center w-full' : ''
+      ]"
+      class="block"
+    >
+      {{ link.label }}
+    </a>
+  }
+</div>

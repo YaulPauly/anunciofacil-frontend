@@ -1,0 +1,4 @@
+.link-active {
+  color: var(--color-text, #111111);
+  border-bottom: 2px solid currentColor;
+}

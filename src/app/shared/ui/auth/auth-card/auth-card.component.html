@@ -1,0 +1,12 @@
+<section class="auth-card">
+  <div class="auth-card__illustration"></div>
+  <div class="auth-card__content">
+    <div class="auth-card__header">
+      <h2>{{ title }}</h2>
+      @if (subtitle) {
+        <p>{{ subtitle }}</p>
+      }
+    </div>
+    <ng-content></ng-content>
+  </div>
+</section>

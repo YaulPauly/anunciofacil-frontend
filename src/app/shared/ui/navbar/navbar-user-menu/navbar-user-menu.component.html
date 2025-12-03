@@ -1,0 +1,39 @@
+<div [ngClass]="mobile ? 'flex flex-col gap-3 w-full' : 'relative'">
+  @if (isLoggedIn) {
+    @if (mobile) {
+      <app-navbar-links [links]="links" orientation="column"></app-navbar-links>
+
+      <button (click)="logout.emit()" class="text-red-500 text-left py-2">
+        Cerrar sesión
+      </button>
+    } @else {
+      <button
+        (click)="menuOpenChange.emit(!menuOpen)"
+        class="flex gap-4 items-center bg-white px-2 py-1 rounded-lg cursor-pointer hover:shadow-md transition-shadow"
+      >
+        <img [src]="user?.avatar" class="w-10 h-10 rounded-full" alt="Avatar" />
+        {{ user?.nombre }}
+      </button>
+
+      @if (menuOpen) {
+        <div
+          class="animation-dropdown absolute right-0 top-full bg-white shadow-lg rounded-b-lg p-6 flex flex-col gap-4 z-50"
+        >
+          <app-navbar-links [links]="links" orientation="column"></app-navbar-links>
+
+          <button (click)="logout.emit()" class="text-red-500 text-left">
+            Cerrar sesión
+          </button>
+        </div>
+      }
+    }
+  } @else {
+    <div [ngClass]="mobile ? 'flex flex-col gap-2' : 'flex items-center gap-3'">
+      <a routerLink="/login" [ngClass]="mobile ? 'py-2' : ''">Iniciar sesión</a>
+      <span class="text-sm text-gray-500">|</span>
+      <a routerLink="/login/registro" class="font-semibold" [ngClass]="mobile ? 'py-2' : ''">
+        Regístrate
+      </a>
+    </div>
+  }
+</div>

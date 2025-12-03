@@ -5,7 +5,6 @@ import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-ad-item',
-  standalone: true,
   imports: [RouterLink],
   templateUrl: './ad-item.html',
   styleUrls: ['./ad-item.css'],

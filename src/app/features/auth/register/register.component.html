@@ -1,3 +1,34 @@
-<section class="p-6">
-  <p>Pantalla de registro</p>
-</section>
+<app-auth-card title="Crea tu cuenta" subtitle="Publica y administra tus anuncios fácilmente.">
+  <form class="auth-form">
+    <app-auth-input label="Nombres" placeholder="Ingresa tus nombres" type="text" icon="👤" />
+
+    <app-auth-input label="Apellidos" placeholder="Ingresa tus apellidos" type="text" icon="👤" />
+
+    <app-auth-input
+      label="Correo electrónico"
+      placeholder="Ingresa tu correo"
+      type="email"
+      icon="✉️"
+    />
+
+    <app-auth-input
+      label="Contraseña"
+      placeholder="Crea una contraseña"
+      type="password"
+      icon="🔒"
+    />
+
+    <app-auth-file-input
+      label="Foto de perfil"
+      icon="🖼️"
+      accept="image/*"
+    />
+
+    <app-auth-button label="Crear cuenta" type="submit" />
+
+    <p class="auth-form__hint">
+      ¿Ya tienes cuenta?
+      <a routerLink="/login" class="auth-form__link">Inicia sesión</a>
+    </p>
+  </form>
+</app-auth-card>

@@ -1,0 +1,20 @@
+<div class="auth-file">
+  <label class="auth-file__label" [attr.for]="inputId">
+    @if (icon) {
+      <span class="auth-file__icon">{{ icon }}</span>
+    }
+    {{ label }}
+  </label>
+
+  <label class="auth-file__picker" [attr.for]="inputId">
+    <input
+      type="file"
+      class="auth-file__input"
+      [accept]="accept"
+      [id]="inputId"
+      (change)="onFileChange($event)"
+    />
+    <span class="auth-file__button">Seleccionar archivo</span>
+    <span class="auth-file__name">{{ selectedFileName }}</span>
+  </label>
+</div>

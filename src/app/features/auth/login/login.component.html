@@ -1,3 +1,24 @@
-<section class="p-6">
-  <p>Pantalla de inicio de sesión</p>
-</section>
+<app-auth-card title="Accede a tu cuenta" subtitle="Gestiona tus anuncios desde tu panel.">
+  <form class="auth-form">
+    <app-auth-input
+      label="Correo electrónico"
+      placeholder="Ingresa tu correo"
+      type="email"
+      icon="✉️"
+    />
+
+    <app-auth-input
+      label="Contraseña"
+      placeholder="Ingresa tu contraseña"
+      type="password"
+      icon="🔒"
+    />
+
+    <app-auth-button label="Iniciar sesión" type="submit" />
+
+    <p class="auth-form__hint">
+      ¿Aún no tienes una cuenta?
+      <a routerLink="/login/registro" class="auth-form__link">Regístrate aquí</a>
+    </p>
+  </form>
+</app-auth-card>

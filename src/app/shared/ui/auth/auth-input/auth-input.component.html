@@ -1,0 +1,13 @@
+<label class="auth-input">
+  <span class="auth-input__label">
+    @if (icon) {
+      <span class="auth-input__icon">{{ icon }}</span>
+    }
+    {{ label }}
+  </span>
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    class="auth-input__control"
+  />
+</label>

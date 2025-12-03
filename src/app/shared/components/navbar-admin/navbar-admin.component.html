@@ -1,0 +1,59 @@
+<nav
+  class="flex justify-between items-center lg:px-35 xl:px-80 px-4 h-20 bg-navbar text-color-text font-semibold relative"
+>
+  <app-navbar-brand />
+
+  <div class="hidden md:flex gap-10 items-center">
+    <app-navbar-links [links]="[ctaLink]" orientation="row" />
+    <app-navbar-links [links]="mainLinks" orientation="row" />
+
+    <app-navbar-user-menu
+      [isLoggedIn]="isLoggedIn"
+      [user]="usuario()"
+      [menuOpen]="desktopMenuOpen()"
+      [links]="userLinks"
+      (menuOpenChange)="desktopMenuOpen.set($event)"
+      (logout)="handleLogout()"
+    />
+  </div>
+
+  <button
+    (click)="toggleMobileMenu()"
+    class="md:hidden flex flex-col gap-1.5 p-2"
+    aria-label="Abrir menú de navegación"
+  >
+    <span
+      class="w-6 h-0.5 bg-color-text transition-all"
+      [class.rotate-45]="mobileMenuOpen()"
+      [class.translate-y-2]="mobileMenuOpen()"
+    >
+    </span>
+
+    <span class="w-6 h-0.5 bg-color-text transition-all" [class.opacity-0]="mobileMenuOpen()">
+    </span>
+
+    <span
+      class="w-6 h-0.5 bg-color-text transition-all"
+      [class.-rotate-45]="mobileMenuOpen()"
+      [class.-translate-y-2]="mobileMenuOpen()"
+    >
+    </span>
+  </button>
+
+  @if (mobileMenuOpen()) {
+  <div
+    class="absolute top-20 left-0 w-full bg-navbar shadow-lg md:hidden p-4 flex flex-col gap-4 z-40"
+  >
+    <app-navbar-links [links]="mainLinks" orientation="column" />
+    <app-navbar-links [links]="[ctaLink]" orientation="column" />
+
+    <app-navbar-user-menu
+      [mobile]="mobileMenuOpen()"
+      [isLoggedIn]="isLoggedIn"
+      [user]="usuario()"
+      [links]="userLinks"
+      (logout)="handleLogout()"
+    />
+  </div>
+  }
+</nav>
