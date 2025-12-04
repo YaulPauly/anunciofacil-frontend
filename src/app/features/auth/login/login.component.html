@@ -1,10 +1,11 @@
 <app-auth-card title="Accede a tu cuenta" subtitle="Gestiona tus anuncios desde tu panel.">
-  <form class="auth-form">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
     <app-auth-input
       label="Correo electrónico"
       placeholder="Ingresa tu correo"
       type="email"
       icon="✉️"
+      [control]="loginForm.get('email')"
     />
 
     <app-auth-input
@@ -12,9 +13,10 @@
       placeholder="Ingresa tu contraseña"
       type="password"
       icon="🔒"
+      [control]="loginForm.get('password')"
     />
 
-    <app-auth-button label="Iniciar sesión" type="submit" />
+    <app-auth-button label="Iniciar sesión" type="submit" [class.opacity-50]="loginForm.invalid || loading" />
 
     <p class="auth-form__hint">
       ¿Aún no tienes una cuenta?

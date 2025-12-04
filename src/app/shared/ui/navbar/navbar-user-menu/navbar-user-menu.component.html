@@ -8,8 +8,11 @@
       </button>
     } @else {
       <button
+        type="button"
         (click)="menuOpenChange.emit(!menuOpen)"
         class="flex gap-4 items-center bg-white px-2 py-1 rounded-lg cursor-pointer hover:shadow-md transition-shadow"
+        [title]="'Menú de ' + (user?.nombre || 'usuario')"
+        [attr.aria-label]="'Abrir menú de ' + (user?.nombre || 'usuario')"
       >
         <img [src]="user?.avatar" class="w-10 h-10 rounded-full" alt="Avatar" />
         {{ user?.nombre }}

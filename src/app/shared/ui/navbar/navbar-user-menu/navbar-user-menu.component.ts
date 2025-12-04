@@ -12,7 +12,7 @@ import { NavbarLink } from '../../../models/navbar-link';
 })
 export class NavbarUserMenuComponent {
   @Input() isLoggedIn = false;
-  @Input() user: { nombre: string; email: string; avatar: string } | null = null;
+  @Input() user: { nombre: string; email: string; avatar?: string } | null = null;
   @Input() menuOpen = false;
   @Input() mobile = false;
   @Input() links: NavbarLink[] = [];

@@ -1,14 +1,27 @@
 <app-auth-card title="Crea tu cuenta" subtitle="Publica y administra tus anuncios fácilmente.">
-  <form class="auth-form">
-    <app-auth-input label="Nombres" placeholder="Ingresa tus nombres" type="text" icon="👤" />
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+    <app-auth-input
+      label="Nombres"
+      placeholder="Ingresa tus nombres"
+      type="text"
+      icon="👤"
+      [control]="registerForm.get('nombre')"
+    />
 
-    <app-auth-input label="Apellidos" placeholder="Ingresa tus apellidos" type="text" icon="👤" />
+    <app-auth-input
+      label="Apellidos"
+      placeholder="Ingresa tus apellidos"
+      type="text"
+      icon="👤"
+      [control]="registerForm.get('apellidos')"
+    />
 
     <app-auth-input
       label="Correo electrónico"
       placeholder="Ingresa tu correo"
       type="email"
       icon="✉️"
+      [control]="registerForm.get('email')"
     />
 
     <app-auth-input
@@ -16,15 +29,17 @@
       placeholder="Crea una contraseña"
       type="password"
       icon="🔒"
+      [control]="registerForm.get('password')"
     />
 
     <app-auth-file-input
       label="Foto de perfil"
       icon="🖼️"
       accept="image/*"
+      (fileSelected)="$event && onFotoSeleccionada($event)"
     />
 
-    <app-auth-button label="Crear cuenta" type="submit" />
+    <app-auth-button label="Crear cuenta" type="submit" [class.opacity-50]="registerForm.invalid || loading" />
 
     <p class="auth-form__hint">
       ¿Ya tienes cuenta?

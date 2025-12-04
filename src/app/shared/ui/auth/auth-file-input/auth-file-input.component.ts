@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-auth-file-input',
@@ -13,12 +13,21 @@ export class AuthFileInputComponent {
   @Input() icon?: string;
   @Input() accept = 'image/*';
 
+//evento salida
+  @Output() fileSelected = new EventEmitter<File | null>();
+
   selectedFileName = 'Ningún archivo seleccionado';
   inputId = `file-input-${Math.random().toString(36).slice(2, 9)}`;
 
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
-    this.selectedFileName = file ? file.name : 'Ningún archivo seleccionado';
+    if(file) {
+      this.selectedFileName = file.name;
+      this.fileSelected.emit(file);
+    }else {
+      this.selectedFileName = 'Ningún archivo seleccionado';
+      this.fileSelected.emit(null);
+    }
   }
 }
